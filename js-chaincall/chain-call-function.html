@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原生js实现函数链式调用</title>
+</head>
+<body>
+<body>
+<div>
+    <input type="text" id="content">
+    <button type="button" id="btn">click</button>
+</div>
+<script>
+    window.onload = function(){
+        var oContent = document.getElementById('content');
+        var oBtn = document.getElementById('btn');
+
+        var SayHello = function(){
+            this.content = '';
+        };
+        SayHello.prototype = {
+            SayMorning: function(){
+                this.content += 'good morning';
+                //这里返回调用对象
+                return this;
+            },
+            SayNight: function(){
+                this.content += 'good night';
+                return this;
+            }
+        };
+
+        oBtn.addEventListener('click', function(){
+            var sayhello = new SayHello();
+            //当调用SayMorning函数之后返回了调用对象sayhello
+            sayhello.SayMorning().SayNight(); //这里相当于sayhello.SayMorning(),sayhello.SayNight();
+            oContent.value = sayhello.content;
+        },false);
+    }
+</script>
+</body>
+</body>
+</html>
