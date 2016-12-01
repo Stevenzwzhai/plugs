@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>data-bind-angular</title>
+</head>
+<body>
+<!--
+    angular中双向数据绑定一开始以为是有个轮询在不停的进行脏检查，这样带来的性能就太差了，但是又觉得不太可能，后来看到几位大神的说明，脏检查不
+    是一直在进行，而是会有触发机制。比如输入框内容的改变，或者点击按钮等，这一点从angular的指令就可以看出，在指令中绑定数据改变时页面并没有起
+    到作用，这个时候就需要手动启动脏检查scope.$apply();
+-->
+    <div div="app">
+        <input type="text" ng-model="name">
+        <div ng-bind="name"></div>
+        <div ng-bind="name"></div>
+    </div>
+    <script>
+
+        function _bind(){
+            var model = document.querySelectorAll('[ng-model="name"]')[0];
+            model.addEventListener('change', function(){
+                evaluate(this.value);
+            }, false);
+
+        }
+        function evaluate(value){
+            var modelList = document.querySelectorAll('[ng-bind="name"]');
+            modelList.forEach(function(item){
+                item.innerHTML = value;
+            });
+        }
+        _bind();
+    </script>
+</body>
+</html>

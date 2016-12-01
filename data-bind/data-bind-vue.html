@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>data-bind-vue</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="name">
+        <div v-text="name"></div>
+        <div v-text="name"></div>
+        <input type="text" v-model="email">
+        <div v-text="email"></div>
+        <div v-text="email"></div>
+    </div>
+    <script>
+        /*
+        * vue使用的是es5的Object.defineProperty();
+        * */
+
+        function Vue(option){
+            this.$option = option;
+            var $option = this.$option;
+            var dom = document.querySelector($option.el);
+            observe(dom,$option.data);
+        }
+
+        function observe(dom,obj){
+            for(property in obj){
+                console.log(23);
+                watcher(dom,property);
+            }
+        }
+        function watcher(dom,vModel){
+            var model = dom.querySelectorAll('[v-model='+'"'+vModel+'"'+']')[0];
+            var obj = new Object();
+            Object.defineProperty(obj,vModel,{
+                set:function(newVal){
+                    compile(dom,newVal,vModel);
+                },
+                get:function(){
+                    console.log("get");
+                }
+            });
+            model.addEventListener('change', function(){
+                obj[vModel] = this.value;
+            })
+        }
+        function compile(dom,value,vModel){
+            var modelList = dom.querySelectorAll('[v-text='+'"'+vModel+'"'+']');
+            modelList.forEach(function(item){
+                item.innerHTML = value;
+            });
+        }
+        var vm = new Vue({
+             el:'#app',
+             data:{
+                 name:"",
+                 email:""
+             }
+         });
+    </script>
+</body>
+</html>
