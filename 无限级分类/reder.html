@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>循环渲染</title>
+</head>
+<body>
+	<div id="app"></div>
+	<script>
+		var data = [{
+			'name':'word',
+			'child':[
+				{
+					'name':'A',
+					'child':[{
+						'name':'Aa',
+						'child':[]
+					},{
+						'name':'Ab',
+						'child':[]
+					}]
+				},{
+					'name':'B',
+					'child':[{
+						'name':'Ba',
+						'child':[{
+							'name':'Baa',
+							'child':[]
+						}]
+					},{
+						'name':'Bb',
+						'child':[]
+					}]
+				},{
+					'name':'C',
+					'child':[{
+						'name':'Ca',
+						'child':[]
+					},{
+						'name':'Cb',
+						'child':[{
+							'name':'Cba',
+							'child':[{
+								'name':'Cbaa',
+								'child':[]
+							}]
+						}]
+					}]
+				}
+
+			]
+		}]
+
+		var container = document.getElementById('app');
+		console.log(new Date().getTime());
+		function render(arr){
+			var oUl = document.createElement('ul');
+			arr.forEach(function(value, index, allArray){
+				var li = document.createElement('li');
+				li.innerHTML = value.name;
+				oUl.appendChild(li);
+				if(value.child.length>0){
+					var child = render(value.child);
+					li.appendChild(child);
+				}
+			});
+			return oUl;
+		}
+		console.log(new Date().getTime());
+		container.appendChild(render(data));
+		console.log(new Date().getTime());
+		
+	</script>
+</body>
+</html>

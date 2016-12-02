@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="./data.js"></script>
+<script>
+    /*
+    * 这里这种处理数据方式是基于render.html中的渲染方式
+    *
+    * */
+    var newArr = [];
+    var obj = {};
+    //首先把不同级的数据分类，并添加childs属性，方便子集的插入
+    Data.datalist.forEach(function(item){
+        item.childs = [];
+        //以级别为key定义对象数组,这里级别一般以数字为主方便在下面插入数组的时候自动排序
+        if(!obj[item.flevel]){
+            obj[item.flevel] = [];
+
+        }
+        //如果该级别已存在则直接添加到该级别数组
+        obj[item.flevel].push(item);
+    })
+    //把数据插入数组
+    for(var item in obj){
+        newArr.push(obj[item]);
+    }
+    //倒序插入父级
+    var len = newArr.length;
+    //由于是倒序所以使用while循环，避免for循环每次的比较
+    while(len){
+        insert(newArr[len], newArr[len-1]);
+        len--;
+    }
+    function insert(child, parent){
+        //在这里先循环子集，在与对应的父级匹配之后break;减少父级循环
+        child.forEach(function(itemChild){
+            parent.forEach(function(itemParent){
+                if(itemChild.fparentid == itemParent.faccountid){
+                    itemParent.childs.push(itemChild);
+                    break;
+                }
+            })
+        })
+    }
+
+</script>
+</body>
+</html>
