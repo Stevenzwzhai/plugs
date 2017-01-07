@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<textarea name="" id="a" cols="30" rows="10">1234567890</textarea>
+<script>
+    var oText = document.getElementById('a');
+    //测试此处触发无效
+//    oText.onfocus = function(){
+//        var _index = getCursortPosition(oText);
+//        if(oText.selectionStart){
+//            console.log(_index);
+//        }
+//    }
+
+     document.onclick = function(e){
+     	if(e.target.tagName=="TEXTAREA"){
+     		console.log(getCursortPosition(oText));
+     	}
+     }
+
+    function getCursortPosition(obj) {
+        var cursorIndex = 0;
+        console.log('a');
+        if (document.selection) {
+            // IE Support
+            console.log('b');
+            obj.focus();
+            var range = document.selection.createRange();
+            range.moveStart('character', -obj.value.length);
+            cursorIndex = range.text.length;
+        } else if (obj.selectionStart || obj.selectionStart==0) {
+            // another support
+            console.log('c');
+            cursorIndex = obj.selectionStart;
+        }
+        return cursorIndex;
+    }
+</script>
+</body>
+</html>
