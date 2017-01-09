@@ -1,4 +1,4 @@
-define('/Template/Header/Helper', function(){
+
 	//处理删除关键字
 	function dealFocusL(obj,index,allKeyWords){
 		var text = obj.value.slice(0,index);
@@ -37,6 +37,7 @@ define('/Template/Header/Helper', function(){
 			lastIndex = regR.lastIndex;
 		}
 		if(i!=j){
+			//获取右中括号位置
 			var textAll = obj.value;
 			lastIndex = index+text.length-lastIndex+1;
 			allKeyWords.splice(j-1,1);
@@ -60,7 +61,6 @@ define('/Template/Header/Helper', function(){
 		}
 		if(i!=j){
 			if(index==lastIndex){
-				//获取右中括号位置
 				var rightText = regR.exec(obj.value.slice(index, obj.value.length));
 				_lastIndex = rightText['index'];
 				index = _lastIndex+index+1;
@@ -115,12 +115,4 @@ define('/Template/Header/Helper', function(){
 		return (index);
 	}
 
-	return {
-		'dealFocusL':dealFocusL,
-		'dealFocusR':dealFocusR,
-		'dealFocusMove':dealFocusMove,
-		'dealFocusExtend':dealFocusExtend,
-		'getFocus':getFocus
-	}
-
-})
+	

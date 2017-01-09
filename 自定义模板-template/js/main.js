@@ -99,7 +99,7 @@ obj.addEventListener('keydown', function(e) {
 //现在做添加关键字事件，首先明白一点，就是只有我们在文本域中有光标的时候点击添加关键字才可以添加，而点击其他地方失去光标，再点击关键字的时候是不可以添加的
 //所以我们给document添加事件,利用事件冒泡
 document.addEventListener('click', function(e) {
-	//首先判断是不是首次进入，这样我们的光标位置是不存在的
+	//首先判断是否有光标，这样我们的光标位置是不存在的
 	if (cursorIndex !== null) {
 		//这里判断是否是我们要点击的是不是关键字
 		if (e.target.tagName !== "TEXTAREA" && e.target.getAttribute('isFocus')) {
@@ -127,7 +127,7 @@ document.addEventListener('click', function(e) {
 
 //最后我们处理提交模板的内容
 
-var oBtn = document.querySelectorAll('btn')[0];
+var oBtn = document.querySelectorAll('button')[0];
 oBtn.addEventListener('click', function(){
 	//模板名称
 	var templatetypename = document.querySelector('[data-type="templateName"]').value||"";
