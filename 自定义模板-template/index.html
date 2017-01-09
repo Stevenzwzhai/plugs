@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/main.css"/>
+</head>
+<body>
+	<div id="div-template" class="templet-header">
+        <div class="keywords">
+            <p class="line"><span>关键字</span></p>
+            <div class="detail">
+                <span>客户资料变量：</span>
+                <ul id="memberInfo">
+                    <li isFocus="true" v-for="item in data1">{{item.name}}</li>
+                </ul>
+            </div>
+            <div class="detail">
+                <span>会员资料变量：</span>
+                <ul id="customerInfo">
+                    <li isFocus="true" v-for="item in data1">{{item.name}}</li>
+                </ul>
+            </div>
+
+            <div class="detail">
+                <span>门店消费变量：</span>
+                <ul id="storeCharge">
+                    <li isFocus="true" v-for="item in data1">{{item.name}}</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="templet-input">
+            <div class="input-bar">
+                <span class="title">模板名称：</span>
+                <input placeholder="请填入模板名称" data-type="templateName" />
+                <button type="button" data-cmd="saveTemplate">保存模板</button>
+            </div>
+            <div><span class="title">模板内容：</span>
+                <div class="text">
+                    <textarea placeholder="请输入模板内容" isFocus="true" data-type="templateContent"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/util.js"></script>
+</body>
+</html>
