@@ -1,0 +1,117 @@
+.templet-header {
+  background-color: #fff;
+  margin-bottom: 10px;
+  position: relative;
+}
+.templet-header .keywords {
+  border-bottom: 1px solid #e4e8ee;
+  padding-bottom: 3px;
+}
+.templet-header .line {
+  border-bottom: 1px dashed #c5d3de;
+  height: 18px;
+  text-align: center;
+  margin: 0 0 12px 0;
+}
+.templet-header .line > span {
+  background-color: #fff;
+  display: inline-block;
+  line-height: 35px;
+  width: 60px;
+  color: #838383;
+  font-weight: bold;
+}
+.templet-header .detail {
+  padding: 0 12px;
+}
+.templet-header .detail > span {
+  color: #000;
+}
+.templet-header .detail > ul {
+  width: 88%;
+  display: inline-block;
+  font-size: 0;
+  padding-left: 15px;
+}
+.templet-header .detail > ul > li {
+  font-size: 14px;
+  cursor: pointer;
+  color: #696d75;
+  border: 1px solid #DEE2EB;
+  border-radius: 40px;
+  height: 27px;
+  line-height: 27px;
+  padding: 0 15px;
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 12px;
+}
+.templet-header .detail > ul > li.on {
+  font-weight: bold;
+  background: #FFAC63;
+  border: 1px solid #FFAC63;
+  color: #fff;
+}
+.templet-header .detail > ul > li:hover {
+  font-weight: bold;
+  background: #FFAC63;
+  border: 1px solid #FFAC63;
+  color: #fff;
+}
+.templet-header .templet-input {
+  padding: 12px 20px 12px 14px;
+}
+.templet-header .templet-input .input-bar {
+  line-height: 34px;
+}
+.templet-header .templet-input .title {
+  color: #50545C;
+  float: left;
+}
+.templet-header .templet-input input {
+  margin-left: 15px;
+  border: 1px solid #E4E8EE;
+  border-radius: 4px;
+  height: 30px;
+  line-height: 30px;
+  width: 250px;
+  padding-left: 10px;
+  outline: none;
+}
+.templet-header .templet-input input:-webkit-input-placeholder {
+  color: #696D75;
+}
+.templet-header .templet-input button {
+  background: #65C0F4;
+  border-radius: 40px;
+  color: #fff;
+  height: 30px;
+  line-height: 30px;
+  width: 100px;
+  float: right;
+  border:none;
+  outline:none;
+}
+.templet-header .templet-input .text {
+  overflow: hidden;
+  margin-top: 14px;
+  padding-left: 15px;
+}
+.templet-header .templet-input .text textarea {
+  width: 100%;
+  resize: none;
+  outline: none;
+  border: 1px solid #E4E8EE;
+  border-radius: 4px;
+  padding: 10px;
+  height: 100px;
+  box-sizing: border-box;
+}
+.templet-header .header-mask {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
