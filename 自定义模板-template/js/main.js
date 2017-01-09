@@ -45,6 +45,11 @@ for(i;i<len;i++){
 		keyWordsJson[newData[i].name]=newData[i].id;
 	}
 }
+//点击可编辑区域时要对光标更新
+obj.addEventListener('click', function() {
+	cursorIndex = getFocus(obj);
+	dealFocusExtend(obj,cursorIndex);
+})
 
 obj.addEventListener('keyup', function(e) {
 	//每次在文本域中输入的时候都要获取其光标位置，以便于其他操作
@@ -118,9 +123,11 @@ document.addEventListener('click', function(e) {
 
 		} else if (e.target.tagName == "TEXTAREA" && e.target.getAttribute('isFocus')) {
 			//点击文本区域操作
+			cursorIndex = getFocus(obj);
 		} else {
 			//点击其他地方要将光标位置置空，防止点击关键字添加
 			cursorIndex = null;
+			console.log(1);
 		}
 	}
 });
