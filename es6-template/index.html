@@ -5,37 +5,81 @@
 	<title>Document</title>
 </head>
 <body>
-	<div id="app">
-		<p>your name is ${name}</p>
-		<p>your age is ${age}</p>
-	</div>
-	<script>
-		const data = {
-			name:"javascript",
-			age:"22"
-		}
+<div id="app">
+	<p>your name is ${name}</p>
+	<p>your age is ${age}</p>
+</div>
+<script>
+	const data = {
+		name:"javascript",
+		age:"22"
+	}
 
-		const root = document.querySelector('#app');
-		const templateReg = /\${([^{}])+}/g;
-		let res = null;
-		let keyArray = [];
-		while(res = reg.exec(htmlFragment)){
-			let key = res[0].slice(2,res[0].length-1);
-			keyArray.push(key);
-			
-		}
-		
-		for(let item of keyArray){
-			let nReg = new RegExp("\\${"+item+"}","g");
-			console.log(nReg.test(htmlFragment));
-			htmlFragment = htmlFragment.replace(nReg, '${data["'+item+'"]}');
-		}
-		let str = new Function("return `"+htmlFragment+"`");
-		// root.innerHTML = "";
-		// root.insertAdjacentHTML('afterbegin',str);
-		class Compile{
+	const root = document.querySelector('#app');
+	const templateReg = /\${([^{}])+}/g;
+	// let res = null;
+	// let keyArray = [];
+	// while(res = reg.exec(htmlFragment)){
+	// 	let key = res[0].slice(2,res[0].length-1);
+	// 	keyArray.push(key);
 
+	// }
+
+	// for(let item of keyArray){
+	// 	let nReg = new RegExp("\\${"+item+"}","g");
+	// 	console.log(nReg.test(htmlFragment));
+	// 	htmlFragment = htmlFragment.replace(nReg, '${data["'+item+'"]}');
+	// }
+	// let str = new Function("return `"+htmlFragment+"`");
+	// root.innerHTML = "";
+	// root.insertAdjacentHTML('afterbegin',str);
+	class Compile{
+		constructor(node){
+			this.compileNode(node);
+			node.hasChildNodes() ? this.compileNodeList(node.childNodes) : null;
 		}
-	</script>
+		compileNodeList(nodeList){
+			let childListFn, node;
+			for(node of nodeList){
+				this.compileNode(node);
+				node.hasChildNodes ? this.compileNodeList(node.childNodes) : null;
+			}
+		}
+		compileNode(node){
+			console.log(node);
+			if(node.nodeType == 1){
+				this.compileElement(node);
+			}else if(node.nodeType == 3){
+				this.compileText(node);
+			}
+		}
+		compileElement(node){
+			//解析指令
+		}
+		compileText(node){
+			//解析模板
+			node.data;
+			node.data = this.compileTemplate(node.data)();
+		}
+		compileTemplate(textFragment){
+
+			let res = null;
+			let keyArray = [];
+			while(res = templateReg.exec(textFragment)){
+				let key = res[0].slice(2,res[0].length-1);
+				keyArray.push(key);
+			}
+
+			for(let item of keyArray){
+				let nReg = new RegExp("\\${"+item+"}","g");
+				console.log(nReg.test(textFragment));
+				textFragment = textFragment.replace(nReg, '${data["'+item+'"]}');
+			}
+			return new Function("return `"+textFragment+"`");
+		}
+	}
+	new Compile(root);
+
+</script>
 </body>
 </html>
