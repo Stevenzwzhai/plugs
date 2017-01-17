@@ -21,7 +21,7 @@
 	<p>your weight is ${info.weight}</p>
 	<ul>
 		<li z-repeat="item in list">
-			<!--name:${item.age};age:${item.age};-->
+			name:${item.name};age:${item.age};
 		</li>
 	</ul>
 </div>
@@ -88,16 +88,29 @@
 				let dirArr = node.getAttribute("z-repeat").split(" ");
 				console.log(dirArr);
 
-				let cloneNode = node.clonenode(true);
+				let cloneNode = node.cloneNode(true);
 				let docFragment = this.createDocFragment();
 				let len = dirArr.length;
 				let i = 0;
 				while(len){
 					cloneNode.setAttribute("index", i);
+					let nodeText = cloneNode.childNodes[0].data;
+					let res = null;
+					let keyArray = [];
+					while(res = templateReg.exec(nodeText)){
+						let key = res[0].slice(3+dirArr[0].length,res[0].length-1);
+						keyArray.push(key);
+					}
+					console.log(keyArray);
+					for(let item of keyArray){
+						cloneNode.data = nodeText.replace(/\${([^{}])+}/g, "${data."+dirArr[2]+"["+"i"+"]."+item+"}");
+					}
 					docFragment.appendChild(cloneNode);
 					len--;
 					i++;
 				}
+				node.parentNode.appendChild(docFragment);
+				this.compileNodeList(node.parentNode.childNodes);
 			}
 
 
