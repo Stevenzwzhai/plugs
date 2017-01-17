@@ -3,16 +3,43 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<style>
+		*{
+			padding:0;
+			marign:0;
+		}
+		ul, li{
+			list-style: none;
+		}
+	</style>
 </head>
 <body>
 <div id="app">
 	<p>your name is ${name}</p>
 	<p>your age is ${age}</p>
+	<p>your height is ${info.height}</p>
+	<p>your weight is ${info.weight}</p>
+	<ul>
+		<li z-repeat="item in list">
+			<!--name:${item.age};age:${item.age};-->
+		</li>
+	</ul>
 </div>
 <script>
-	const data = {
+	let obj = {
 		name:"javascript",
-		age:"22"
+		age:"22",
+		info:{
+			height:180,
+			weight:70
+		},
+		list:[{
+			name:"xiaoming",
+			age:12
+		},{
+			name:"xiaohong",
+			age:13
+		}]
 	}
 
 	const root = document.querySelector('#app');
@@ -34,8 +61,9 @@
 	// root.innerHTML = "";
 	// root.insertAdjacentHTML('afterbegin',str);
 	class Compile{
-		constructor(node){
+		constructor(node,data){
 			this.compileNode(node);
+			this.data = data;
 			node.hasChildNodes() ? this.compileNodeList(node.childNodes) : null;
 		}
 		compileNodeList(nodeList){
@@ -46,39 +74,70 @@
 			}
 		}
 		compileNode(node){
-			console.log(node);
 			if(node.nodeType == 1){
 				this.compileElement(node);
 			}else if(node.nodeType == 3){
-				this.compileText(node);
+				this.compileText(node, this.data);
 			}
 		}
 		compileElement(node){
 			//解析指令
+			var dirs = node.attributes;
+
+			if(node.hasAttribute("z-repeat")){
+				let dirArr = node.getAttribute("z-repeat").split(" ");
+				console.log(dirArr);
+
+				let cloneNode = node.clonenode(true);
+				let docFragment = this.createDocFragment();
+				let len = dirArr.length;
+				let i = 0;
+				while(len){
+					cloneNode.setAttribute("index", i);
+					docFragment.appendChild(cloneNode);
+					len--;
+					i++;
+				}
+			}
+
+
 		}
-		compileText(node){
+		compileText(node, data){
 			//解析模板
-			node.data;
-			node.data = this.compileTemplate(node.data)();
+			node.data = this.compileTemplate(node.data)(data);
+
 		}
 		compileTemplate(textFragment){
-
 			let res = null;
 			let keyArray = [];
 			while(res = templateReg.exec(textFragment)){
 				let key = res[0].slice(2,res[0].length-1);
 				keyArray.push(key);
 			}
-
 			for(let item of keyArray){
 				let nReg = new RegExp("\\${"+item+"}","g");
-				console.log(nReg.test(textFragment));
-				textFragment = textFragment.replace(nReg, '${data["'+item+'"]}');
+				let dataStr = this.dealText(item);
+				textFragment = textFragment.replace(nReg, dataStr);
 			}
-			return new Function("return `"+textFragment+"`");
+
+			return new Function("data","return `"+textFragment+"`");
+		}
+		dealText(text){
+			let dataStrStart = "${data.";
+			let dataStrEnd = "}";
+			if(!text){
+				return "";
+			}
+			return dataStrStart+text+dataStrEnd;
+
+		}
+		createDocFragment(){
+			let docFragment = null;
+			return docFragment = document.createDocumentFragment();
+
 		}
 	}
-	new Compile(root);
+	new Compile(root, obj);
 
 </script>
 </body>
