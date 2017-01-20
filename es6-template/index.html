@@ -88,11 +88,14 @@
 		compileElement(node){
 			//解析指令
 			var dirs = node.attributes;
-			console.log(dirs);
 			if(node.hasAttribute("z-repeat")){
 				this.dealDir("z-repeat",node,dirs);
 			}
 
+			if(node.getAttribute("z-show")){
+				console.log(1);
+				this.dealDir("z-show", node, dirs);
+			}
 
 
 		}
@@ -137,34 +140,40 @@
 		dealDir(type,node,dirs){
 			switch(type){
 				case "z-repeat":((node,dirs)=>{
-					let dirArr = node.getAttribute("z-repeat").split(" ");
-					node.removeAttribute("z-repeat")
-					let parentNode = node.parentNode;
-					let docFragment = this.createDocFragment();
-					let len = this.data[dirArr[2]].length;
-					let i = 0;
-					while(len){
-						let cloneNode = node.cloneNode(true);
-						cloneNode.setAttribute("index", i);
-						let nodeText = cloneNode.childNodes[0].data;
-						let res = null;
-						let keyArray = [];
-						while(res = templateReg.exec(nodeText)){
-							let key = res[0].slice(3+dirArr[0].length,res[0].length-1);
-							keyArray.push(key);
+						let dirArr = node.getAttribute("z-repeat").split(" ");
+						node.removeAttribute("z-repeat")
+						let parentNode = node.parentNode;
+						let docFragment = this.createDocFragment();
+						let len = this.data[dirArr[2]].length;
+						let i = 0;
+						while(len){
+							let cloneNode = node.cloneNode(true);
+							cloneNode.setAttribute("index", i);
+							let nodeText = cloneNode.childNodes[0].data;
+							let res = null;
+							let keyArray = [];
+							while(res = templateReg.exec(nodeText)){
+								let key = res[0].slice(3+dirArr[0].length,res[0].length-1);
+								keyArray.push(key);
+							}
+							for(let item of keyArray){
+								let nReg = new RegExp("\\${"+dirArr[0]+"."+item+"}","g");
+								cloneNode.innerHTML = cloneNode.innerHTML.replace(nReg, "${"+dirArr[2]+"\\["+i+"\\]\\."+item+"}");
+							}
+							docFragment.appendChild(cloneNode);
+							len--;
+							i++;
 						}
-						for(let item of keyArray){
-							let nReg = new RegExp("\\${"+dirArr[0]+"."+item+"}","g");
-							cloneNode.innerHTML = cloneNode.innerHTML.replace(nReg, "${"+dirArr[2]+"\\["+i+"\\]\\."+item+"}");
-						}
-						docFragment.appendChild(cloneNode);
-						len--;
-						i++;
-					}
-					parentNode.appendChild(docFragment);
-					parentNode.removeChild(node);
-				})(node,dirs);
+						parentNode.appendChild(docFragment);
+						parentNode.removeChild(node);
+					})(node,dirs);
 					break;
+				case "z-show":((node,dirs)=>{
+						let flag = node.getAttribute("z-show");
+						if(flag=="false"){
+							node.style.display = "none";
+						}
+					})(node,dirs)
 
 			}
 		}
