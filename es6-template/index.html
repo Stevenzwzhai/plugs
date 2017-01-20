@@ -19,6 +19,7 @@
 	<p>your age is ${age}</p>
 	<p>your height is ${info.height}</p>
 	<p>your weight is ${info.weight}</p>
+	<p z-show="false">this is hide</p>
 	<ul>
 		<li z-repeat="item in list">
 			name:${item.name};age:${item.age};
@@ -79,7 +80,7 @@
 		}
 		compileNode(node){
 			if(node.nodeType == 1){
-//				this.compileElement(node);
+				this.compileElement(node);
 			}else if(node.nodeType == 3){
 				this.compileText(node, this.data);
 			}
@@ -87,36 +88,11 @@
 		compileElement(node){
 			//解析指令
 			var dirs = node.attributes;
-
+			console.log(dirs);
 			if(node.hasAttribute("z-repeat")){
-				let dirArr = node.getAttribute("z-repeat").split(" ");
-				node.removeAttribute("z-repeat")
-				let parentNode = node.parentNode;
-				let docFragment = this.createDocFragment();
-				let len = this.data[dirArr[2]].length;
-				let i = 0;
-				while(len){
-					let cloneNode = node.cloneNode(true);
-					cloneNode.setAttribute("index", i);
-					let nodeText = cloneNode.childNodes[0].data;
-					let res = null;
-					let keyArray = [];
-					while(res = templateReg.exec(nodeText)){
-						let key = res[0].slice(3+dirArr[0].length,res[0].length-1);
-						keyArray.push(key);
-					}
-					for(let item of keyArray){
-						let nReg = new RegExp("\\${"+dirArr[0]+"."+item+"}","g");
-						cloneNode.innerHTML = cloneNode.innerHTML.replace(nReg, "${"+dirArr[2]+"\\["+i+"\\]\\."+item+"}");
-					}
-					docFragment.appendChild(cloneNode);
-					len--;
-					i++;
-				}
-				parentNode.appendChild(docFragment);
-				parentNode.removeChild(node);
-//				this.compileNodeList(parentNode.childNodes);
+				this.dealDir("z-repeat",node,dirs);
 			}
+
 
 
 		}
@@ -140,9 +116,7 @@
 				let dataStr = this.dealText(item);
 				dataStr = dataStr.replace(/\\/g, "");
 				textFragment = textFragment.replace(/\\/g, "");
-				console.log(nReg,dataStr);
 				textFragment = textFragment.replace(nReg, dataStr);
-				console.log(textFragment);
 			}
 			return new Function("data","return `"+textFragment+"`");
 		}
@@ -159,6 +133,40 @@
 			let docFragment = null;
 			return docFragment = document.createDocumentFragment();
 
+		}
+		dealDir(type,node,dirs){
+			switch(type){
+				case "z-repeat":((node,dirs)=>{
+					let dirArr = node.getAttribute("z-repeat").split(" ");
+					node.removeAttribute("z-repeat")
+					let parentNode = node.parentNode;
+					let docFragment = this.createDocFragment();
+					let len = this.data[dirArr[2]].length;
+					let i = 0;
+					while(len){
+						let cloneNode = node.cloneNode(true);
+						cloneNode.setAttribute("index", i);
+						let nodeText = cloneNode.childNodes[0].data;
+						let res = null;
+						let keyArray = [];
+						while(res = templateReg.exec(nodeText)){
+							let key = res[0].slice(3+dirArr[0].length,res[0].length-1);
+							keyArray.push(key);
+						}
+						for(let item of keyArray){
+							let nReg = new RegExp("\\${"+dirArr[0]+"."+item+"}","g");
+							cloneNode.innerHTML = cloneNode.innerHTML.replace(nReg, "${"+dirArr[2]+"\\["+i+"\\]\\."+item+"}");
+						}
+						docFragment.appendChild(cloneNode);
+						len--;
+						i++;
+					}
+					parentNode.appendChild(docFragment);
+					parentNode.removeChild(node);
+				})(node,dirs);
+					break;
+
+			}
 		}
 	}
 	new Compile(root, obj);
