@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Document</title>
+</head>
+<body>
+	<div id="id" style="width:20px;height:20px;background:red;position:absolute;"></div>
+
+	<script>
+
+		var obj = document.getElementById('id');
+		    obj.addEventListener('touchmove', function(event){ 
+		  		// 如果这个元素的位置内只有一个手指的话
+		        if (event.targetTouches.length == 1){
+
+				    var touch = event.targetTouches[0];
+				    // 把元素放在手指所在的位置
+				    obj.style.left = touch.pageX + 'px';
+				    obj.style.top = touch.pageY + 'px';
+				}
+		}, false);
+	</script>
+</body>
+</html>
