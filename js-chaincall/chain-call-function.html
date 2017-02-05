@@ -37,6 +37,30 @@
             oContent.value = sayhello.content;
         },false);
     }
+
+    //es6实现
+    let pipe = (()=>{
+                return function(value){
+                    let funcStack = [];
+                    let oProxy = new Proxy({}, {
+                        get(target, key){
+                            if(key === "get"){
+                                return funcStack.reduce((val, fn)=>{
+                                            return fn(val);
+                            }, value);
+                            }
+                            funcStack.push(window[key]);
+                            return oProxy;
+                        }
+                    });
+                    return oProxy;
+                }
+            })();
+    let double = n => n * 2;
+    let pow    = n => n * n;
+    let reverseInt = n => n.toString().split("").reverse().join("") | 0;
+
+    pipe(3).double.pow.reverseInt.get;
 </script>
 </body>
 </body>
