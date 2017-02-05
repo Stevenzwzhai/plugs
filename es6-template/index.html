@@ -45,22 +45,7 @@
 
 	const root = document.querySelector('#app');
 	const templateReg = /\${([^{}])+}/g;
-	// let res = null;
-	// let keyArray = [];
-	// while(res = reg.exec(htmlFragment)){
-	// 	let key = res[0].slice(2,res[0].length-1);
-	// 	keyArray.push(key);
 
-	// }
-
-	// for(let item of keyArray){
-	// 	let nReg = new RegExp("\\${"+item+"}","g");
-	// 	console.log(nReg.test(htmlFragment));
-	// 	htmlFragment = htmlFragment.replace(nReg, '${data["'+item+'"]}');
-	// }
-	// let str = new Function("return `"+htmlFragment+"`");
-	// root.innerHTML = "";
-	// root.insertAdjacentHTML('afterbegin',str);
 	class Compile{
 		constructor(node,data){
 			this.compileNode(node);
