@@ -13,7 +13,6 @@
         }
     }
     return {
-
         href : url.protocol,
         protocol : url.protocol,
         host : url.host,
@@ -21,6 +20,7 @@
         pathname : url.pathname,
         origin : url.origin,
         hostname : url.hostname,
+        hash : url.hash,
         query : query
     }
 })()
