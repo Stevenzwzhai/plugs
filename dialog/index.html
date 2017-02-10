@@ -90,6 +90,12 @@
     /*
     * 封装之后可以创建Dialog对象，并且可以配置其位置和大小，在项目中可以在任何地方创建使用，不必每个弹窗都写一遍。
     * */
+    //默认配置
+    var defaultConfig = {
+        width:600,
+        height:300,
+        top:30
+    }
     function Dialog(config){
         this.config = {
             id:config.id || 'modal',

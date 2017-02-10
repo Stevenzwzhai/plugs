@@ -59,8 +59,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dialog/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="92" column="28" selection-start-line="92" selection-start-column="28" selection-end-line="92" selection-end-column="28" />
+            <state relative-caret-position="351">
+              <caret line="96" column="14" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -413,7 +413,7 @@
       <workItem from="1484721568269" duration="7000" />
       <workItem from="1484722162038" duration="649000" />
       <workItem from="1484789116498" duration="7394000" />
-      <workItem from="1486275427362" duration="17584000" />
+      <workItem from="1486275427362" duration="18253000" />
     </task>
     <task id="LOCAL-00001" summary="编译模板函数">
       <created>1484274502813</created>
@@ -527,11 +527,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486708122722</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Modal使用方法封装">
+      <created>1486708205953</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1486708205953</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51261000" />
+    <option name="totallyTimeSpent" value="51930000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="970" y="21" width="1918" height="1040" extended-state="0" />
@@ -924,8 +931,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dialog/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="92" column="28" selection-start-line="92" selection-start-column="28" selection-end-line="92" selection-end-column="28" />
+        <state relative-caret-position="351">
+          <caret line="96" column="14" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
           <folding />
         </state>
       </provider>
