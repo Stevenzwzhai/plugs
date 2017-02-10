@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99891c65-233e-41da-970c-b275b83351d8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/date-format/Main/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dialog/index.html" afterPath="$PROJECT_DIR$/dialog/index.html" />
     </list>
     <ignored path="plugs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/date-format/Main/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="80">
-              <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -56,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dialog/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+            <state relative-caret-position="191">
+              <caret line="88" column="8" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -151,9 +151,9 @@
         <option value="$PROJECT_DIR$/get-background-color/index.html" />
         <option value="$PROJECT_DIR$/get-background-color/main.jhs.js" />
         <option value="$PROJECT_DIR$/emitter/main.js" />
-        <option value="$PROJECT_DIR$/dialog/index.html" />
         <option value="$PROJECT_DIR$/get-background-color/main.js" />
         <option value="$PROJECT_DIR$/date-format/Main/index.js" />
+        <option value="$PROJECT_DIR$/dialog/index.html" />
       </list>
     </option>
   </component>
@@ -163,8 +163,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1986" />
-    <option name="y" value="80" />
+    <option name="x" value="992" />
+    <option name="y" value="85" />
     <option name="width" value="1918" />
     <option name="height" value="1040" />
   </component>
@@ -322,7 +322,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Template-es6" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../vStore_report-re" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="js-jscs-nodeInterpreter" value="D:\node\node.exe" />
@@ -413,7 +413,7 @@
       <workItem from="1484721568269" duration="7000" />
       <workItem from="1484722162038" duration="649000" />
       <workItem from="1484789116498" duration="7394000" />
-      <workItem from="1486275427362" duration="14716000" />
+      <workItem from="1486275427362" duration="17456000" />
     </task>
     <task id="LOCAL-00001" summary="编译模板函数">
       <created>1484274502813</created>
@@ -513,14 +513,21 @@
       <option name="project" value="LOCAL" />
       <updated>1486431943005</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="日期格式化">
+      <created>1486533842360</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1486533842360</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48393000" />
+    <option name="totallyTimeSpent" value="51133000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1986" y="80" width="1918" height="1040" extended-state="0" />
+    <frame x="992" y="85" width="1918" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18945102" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -563,7 +570,8 @@
     <MESSAGE value="获取元素最终的background-color" />
     <MESSAGE value="emitter" />
     <MESSAGE value="dialog弹窗动画实现" />
-    <option name="LAST_COMMIT_MESSAGE" value="dialog弹窗动画实现" />
+    <MESSAGE value="日期格式化" />
+    <option name="LAST_COMMIT_MESSAGE" value="日期格式化" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -882,14 +890,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dialog/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/get-background-color/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -909,7 +909,15 @@
     <entry file="file://$PROJECT_DIR$/date-format/Main/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
-          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dialog/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="88" column="8" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="8" />
           <folding />
         </state>
       </provider>

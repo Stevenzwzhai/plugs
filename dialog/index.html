@@ -84,6 +84,43 @@
             clearTimeout(timer);
         },200);
     });
+
+
+    //封装
+    /*
+    * 封装之后可以创建Dialog对象，并且可以配置其位置和大小，在项目中可以在任何地方创建使用，不必每个弹窗都写一遍。
+    * */
+    function Dialog(config){
+        this.config = {
+            id:config.id || 'modal',
+            width:config.width || 600,
+            height:config.height || 400,
+            top:config.top || 30
+        };
+        $($('#'+config.id).children()[0]).css({
+            'width': config.width+"px",
+            'height': config.height+"px",
+            'margin-top': config.top+"px"
+        });
+    }
+    Dialog.prototype = {
+        show: function(){
+            $('#'+this.config.id).show();
+            var that = this;
+            var timer = setTimeout(function(){
+                $('#'+that.config.id).addClass("in");
+                clearTimeout(timer);
+            });
+        },
+        hide: function(){
+            $('#'+this.config.id).removeClass('in');
+            var that = this;
+            var timer = setTimeout(function(){
+                $('#'+that.config.id).hide();
+                clearTimeout(timer);
+            }, 200);
+        }
+    }
 </script>
 </body>
 </html>
