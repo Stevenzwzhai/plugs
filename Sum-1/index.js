@@ -28,11 +28,14 @@ var sum = (function() {
     return add;
 })();
 
+//对于多个参数也适用
 var add = function add() {
     var cache;
     if (arguments.length === 1) {
         cache = arguments[0];
         return function ( number ) {return cache + number;};
     }
-    else return arguments[0] + arguments[1];
+    else return Array.prototype.reduce.call(arguments, function(a,b){
+        return a+b;
+    });
 };
