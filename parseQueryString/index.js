@@ -1,6 +1,7 @@
 /**
  * Created by Stevenzwzhai on 2017/2/5.
  */
+
 (function(){
     var url = window.location;
     var search  = url.search;
