@@ -44,5 +44,7 @@
 这里我试过使用div+contentable，关键字使用元素插入，虽然删除很方便，但是在计算光标位置的时候就略复杂，所以这里使用正则去判断光标左右中括号的数量来完成，具体看文章：[JavaScript实现自定义短信模板](http://www.jianshu.com/p/dbc4ac17ba4c)代码地址<https://github.com/Stevenzwzhai/plugs/tree/master/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E6%9D%BF-template>
 ####18.数组排序
 这里只写了冒泡排序和快排，这两个很常见，但是仍有一些地方可以进行优化，我这里增加了一些过滤条件以及算法上的优化。<https://github.com/Stevenzwzhai/plugs/blob/master/Array-sort>
+####19.lazyMan实现
+这算是一个经典的面试题了，这里手动实现了下供参考。<https://github.com/Stevenzwzhai/plugs/tree/master/lazyMan>
 
 以上就是全部内容，当然里面有些不足或粗糙，请大家指正，博客园和简书都是我写的文章，如果觉得不错star一下，或者提供更多的实用插件。未完待续。。。
