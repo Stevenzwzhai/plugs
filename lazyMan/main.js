@@ -1,5 +1,5 @@
 /**
- * Created by zhiwei_zhai on 2017/3/8.
+ * Created by Stevenzwzhai on 2017/3/8.
  */
 //实现一个LazyMan，可以按照以下方式调用:
 LazyMan("Hank")//输出:
