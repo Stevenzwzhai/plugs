@@ -53,7 +53,7 @@
 
 #### 16.判断一个函数是否为质数的算法
 基本思路：负数不是质数。同样的，1和0也不是，因此，首先测试这些数字。此外，2是质数中唯一的偶数。没有必要用一个循环来验证4,6,8。再则，如果一个数字不能被2整除，那么它不能被4，6，8等整除。因此，你的循环必须跳过这些数字。
-<https://github.com/Stevenzwzhai/plugs/tree/master/%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E5%AD%97%E6%98%AF%E5%90%A6%E6%98%AF%E5%9F%BA%E6%95%B0>
+<https://github.com/Stevenzwzhai/plugs/tree/master/%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E5%AD%97%E6%98%AF%E5%90%A6%E6%98%AF%E8%B4%A8%E6%95%B0>
 
 #### 16.js无限级分类
 关于这个我也有文章具体介绍[无限级分类和循环渲染](http://www.cnblogs.com/Upton/p/6125059.html)
