@@ -1,6 +1,6 @@
 ## plugs
 
-[![Build Status](https://travis-ci.org/Stevenzwzhai/plugs.svg?branch=master)](https://travis-ci.org/Stevenzwzhai/plugs)
+[![Build Status](https://travis-ci.org/Stevenzwzhai/plugs.svg?branch=dev)](https://travis-ci.org/Stevenzwzhai/plugs)
 
 半年的时间，工作中对于框架的依赖越来越少，所以后面经常自己封装一些所需要用到的模块或者插件。我这里只做了实现，至于在项目中如何去封装，还要看具体框架、模块机制来做，所以我这里只作为一个实现方式的参考。
 
