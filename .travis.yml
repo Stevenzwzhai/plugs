@@ -1,3 +1,5 @@
-language: node_js
+language: javascript
 node_js:
   - "7"
+os:
+  - "windows"
