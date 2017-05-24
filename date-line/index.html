@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        #container{
+            width:500px;
+            height:800px;
+            border:1px solid#ccc;
+            
+
+        }
+        .lineY{
+            height:700px;
+            width:0px;
+            border:2px solid #aaa;
+        }
+        ul{
+            width:100px;
+            text-align: right;
+            margin-right:10px;
+
+        }
+        li{
+            position:relative;
+            height:20px;
+            line-height: 20px;
+            margin:10px 0;
+            cursor:pointer;
+        }
+        li::after{
+            display:inline-block;
+            content:"";
+            position:absolute;
+            border:4px solid #000;
+            border-radius: 4px;
+            top:8px;
+            right:-16px;
+        }
+        .box{
+            position:absolute;
+            border:1px solid #aaa;
+            width: 120px;
+            border: 1px solid #bbaaee;
+            height:270px;
+            overflow:hidden;
+            display:flex;
+            flex-direction: row;
+        }
+        .lineX{
+            position:absolute;
+            border:1px solid #aaa;
+            width: 100%;
+            top: 142px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        
+        <div class="box">
+            <ul>
+            </ul>
+            <div class="lineY"></div>
+        </div>
+        <div class="lineX"></div>
+    </div>
+    <script>
+        let oUl = document.getElementsByTagName('ul')[0];
+        // let currentDate = new Date();
+        let dateList=[];
+        const allFragment = document.createDocumentFragment();
+        function createUl(currentDate, len, offset){
+            if(Math.abs(len)<1){
+                throw new Error('数量不能为0');
+            }
+            len = 2*Math.abs(len)-1;
+            let dateArray = new Array();
+            let currentIndex = 0;
+            //9个月
+            for(let i=0;i<Math.abs(len);i++){
+                
+                dateArray[i] = format(new Date(new Date(currentDate).setMonth(currentDate.getMonth()-(8-i))));
+            }
+            function format(date){
+                dateList.push(date);
+                return `${date.getFullYear()}年${(date.getMonth()+1)>9?(date.getMonth()+1):'0'+(date.getMonth()+1)}月`;
+            }
+            // console.log(dateArray);
+            const fragment = document.createDocumentFragment();
+            
+            for(let item of dateArray){
+                let oLi = document.createElement('li')
+                oLi.setAttribute('index', currentIndex);
+                oLi.innerHTML = item;
+                fragment.appendChild(oLi);
+                currentIndex++;
+            }
+            oUl.innerHTML = "";
+            oUl.appendChild(fragment);
+            oUl.style.webkitTransform = `translate(0,${30*offset}px)`;
+        }
+        createUl(new Date(), -9, Math.ceil(-9/2));
+
+        oUl.addEventListener('click', (event) => {
+            let index = event.target.getAttribute('index');
+            if(!index){
+                return;
+            }
+            let currentDate = dateList[+index];
+            dateList = [];
+            oUl.style.transition = "";
+            createUl(currentDate, -9, index-8+Math.ceil(-9/2));
+            console.log(index, index-8+Math.ceil(-9/2) )
+            setTimeout(() => {
+                oUl.style.transition = "all .3s ease-in 0s";
+            }, 0)
+            setTimeout(() => {
+                oUl.style.webkitTransform = `translate(0,${30*Math.ceil(-9/2)}px)`;
+                
+            }, 100)
+
+        })
+    </script>
+</body>
+</html>
