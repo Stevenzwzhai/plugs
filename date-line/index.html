@@ -76,9 +76,16 @@
     </div>
     <script>
         let oUl = document.getElementsByTagName('ul')[0];
-        // let currentDate = new Date();
+        //设定一个当前选中事件，默认为当前月
+        let currentDate = new Date();
+        //存储当前时间列表
         let dateList=[];
-        const allFragment = document.createDocumentFragment();
+        /*
+            currentDate:当前事件
+            len：要显示的个数
+            offset：初始偏移量
+        
+        */
         function createUl(currentDate, len, offset){
             if(Math.abs(len)<1){
                 throw new Error('数量不能为0');
@@ -95,7 +102,7 @@
                 dateList.push(date);
                 return `${date.getFullYear()}年${(date.getMonth()+1)>9?(date.getMonth()+1):'0'+(date.getMonth()+1)}月`;
             }
-            // console.log(dateArray);
+            //使用文档碎片
             const fragment = document.createDocumentFragment();
             
             for(let item of dateArray){
@@ -107,26 +114,29 @@
             }
             oUl.innerHTML = "";
             oUl.appendChild(fragment);
+            //渲染完成后将ul移动到原始位置
             oUl.style.webkitTransform = `translate(0,${30*offset}px)`;
         }
-        createUl(new Date(), -9, Math.ceil(-9/2));
+        createUl(currentDate, -9, Math.ceil(-9/2));
 
         oUl.addEventListener('click', (event) => {
             let index = event.target.getAttribute('index');
+            //点击到非li区域不做响应
             if(!index){
                 return;
             }
-            let currentDate = dateList[+index];
+            //将点击的时间设置为选中时间
+            currentDate = dateList[+index];
             dateList = [];
+            //避免初始化位置的时候也产生动画，先设置为空，再异步添加
             oUl.style.transition = "";
             createUl(currentDate, -9, index-8+Math.ceil(-9/2));
-            console.log(index, index-8+Math.ceil(-9/2) )
             setTimeout(() => {
                 oUl.style.transition = "all .3s ease-in 0s";
             }, 0)
             setTimeout(() => {
+                //选中时间始终在最中间
                 oUl.style.webkitTransform = `translate(0,${30*Math.ceil(-9/2)}px)`;
-                
             }, 100)
 
         })
