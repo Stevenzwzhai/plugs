@@ -38,6 +38,7 @@ function renderFruits(list){
     }
 }
 //模糊匹配的时候如果不区分大小写，可以使用toLowerCase()或者toUpperCase()转换之后去匹配。
+
 //模糊查询1:利用字符串的indexOf方法
 function searchByIndexOf(keyWord, list){
     if(!(list instanceof Array)){
