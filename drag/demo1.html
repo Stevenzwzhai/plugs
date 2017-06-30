@@ -7,20 +7,59 @@
 </head>
 <body>
 	<div id="id" style="width:20px;height:20px;background:red;position:absolute;"></div>
-
+		<!--如果相对于整个页面可使用position:fixed;-->
 	<script>
 
 		var obj = document.getElementById('id');
-		    obj.addEventListener('touchmove', function(event){ 
-		  		// 如果这个元素的位置内只有一个手指的话
-		        if (event.targetTouches.length == 1){
+		     
+		//触点和元素左上角位置的差值
+		var offsetX = 0;
+		var offsetY = 0;
+		//初始触点位置
+		var startPosX = 0;
+		var startPosY = 0;
+		//开始拖动时间
+		var startTime = new Date().getTime();
 
-				    var touch = event.targetTouches[0];
-				    // 把元素放在手指所在的位置
-				    obj.style.left = touch.pageX + 'px';
-				    obj.style.top = touch.pageY + 'px';
-				}
-		}, false);
+		obj.addEventListener('touchstart', function(e){
+		    var touch = e.targetTouches[0];
+		    //计算触点和元素左上角位置的差值，保证移动正确距离
+		    offsetX = touch.pageX-obj.offsetLeft;
+		    offsetY = touch.pageY-obj.offsetTop;
+		    startTime = new Date().getTime();
+		    startPosX = touch.pageX;
+		    startPosY = touch.pageY;
+		}, false)
+		obj.addEventListener('touchmove', function(e){
+
+		    var touch = e.targetTouches[0];
+		    var moveX = 0
+		    var moveY = 0;
+		    moveX = touch.pageX-offsetX;
+		    moveY = touch.pageY-offsetY;
+		    if(moveX<=0){
+			obj.style.left = '0px';
+		    }else if(moveY<=0){
+			obj.style.top='0px';
+		    }else if((document.documentElement.clientHeight-obj.clientHeight)<=moveY){
+			obj.style.bottom='0px';
+		    }else if((document.documentElement.clientWidth-obj.clientWidth)<=moveX){
+			obj.style.right='0px';
+		    }else{
+			//以上控制四个边界
+			obj.style.left = moveX + 'px';
+			obj.style.top = moveY + 'px';
+		    }           
+
+		}, false)
+		obj.addEventListener('touchend', function(e){
+		    var touch = e.changedTouches[0];
+		    //控制触点时间小于300ms并且移动范围小于3px时才出发点击时间，防止边界的拖动或快速拖动触发点击事件
+		    if(new Date().getTime()-startTime<300 && (Math.abs(touch.pageX- startPosX)<3||Math.abs(touch.pageY- startPosY)<3)){
+			//点击事件
+			callback();
+		    }
+		})
 	</script>
 </body>
 </html>
