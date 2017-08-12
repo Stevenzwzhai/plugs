@@ -51,6 +51,15 @@
                 }
             }
         },
+        watch:{
+            show：function(val){
+                if(val){
+                    this.show();
+                }else{
+                    this.hide();
+                }
+            }
+        },
         created(){
             
             this.$nextTick(() =>{
