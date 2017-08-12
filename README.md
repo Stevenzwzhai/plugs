@@ -75,7 +75,7 @@
 #### 21.时间轴
 实现一个垂直时间轴，点击对应的时间，滑动到中间位置：<https://github.com/Stevenzwzhai/plugins/date-line>
 #### 22.图品展示插件
-这两个是vue组件，可以通过以下方式调用
+这两个是vue组件(基于vue2.x)，可以通过以下方式调用
 ```
 import Yimg from 'Yimg'
 export default{
