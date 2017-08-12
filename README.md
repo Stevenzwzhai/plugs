@@ -74,5 +74,26 @@
 使用原生js和vue分别编写：<https://github.com/Stevenzwzhai/city-select>
 #### 21.时间轴
 实现一个垂直时间轴，点击对应的时间，滑动到中间位置：<https://github.com/Stevenzwzhai/plugins/date-line>
+#### 22.图品展示插件
+这两个是vue组件，可以通过以下方式调用
+```
+import Yimg from 'Yimg'
+export default{
+       components:{
+              Yimg
+       }
+}
+
+template:
+<Yimg></Yimg>
+```
+##### Yimg是一个简单的图片放大查看组件，鼠标悬浮展示一个放大后的图片，参数：
+src-> String 图片URL
+size-> String/Number 图片大小
+
+##### YGimg是一个图片组查看器，类似于百度图片查看，可以切换图片，图片展示区可以缩放／旋转／拖拽图片，参数：
+title-> String图片查看器弹出时的标题
+imgLit-> Array 图片数组，元素格式{url:imgurl},至于为什么是个对象，是为了以后开发更多
+show-> Boolean,标示图片查看器显示和隐藏，当然有关闭按钮的。
 
 以上就是全部内容，当然里面有些不足或粗糙，请大家指正，博客园和简书都是我写的文章，如果觉得不错star一下，或者提供更多的实用插件。未完待续。。。
