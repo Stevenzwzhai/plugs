@@ -87,11 +87,11 @@ export default{
 template:
 <Yimg></Yimg>
 ```
-##### Yimg是一个简单的图片放大查看组件，鼠标悬浮展示一个放大后的图片，参数：
+##### Yimg(https://github.com/Stevenzwzhai/plugs/tree/master/Yimg)是一个简单的图片放大查看组件，鼠标悬浮展示一个放大后的图片，参数：
 src-> String 图片URL
 size-> String/Number 图片大小
 
-##### YGimg是一个图片组查看器，类似于百度图片查看，可以切换图片，图片展示区可以缩放／旋转／拖拽图片，参数：
+##### YGimg(https://github.com/Stevenzwzhai/plugs/tree/master/YGimg)是一个图片组查看器，类似于百度图片查看，可以切换图片，图片展示区可以缩放／旋转／拖拽图片，参数：
 title-> String图片查看器弹出时的标题
 imgLit-> Array 图片数组，元素格式{url:imgurl},至于为什么是个对象，是为了以后开发更多
 show-> Boolean,标示图片查看器显示和隐藏，当然有关闭按钮的。
