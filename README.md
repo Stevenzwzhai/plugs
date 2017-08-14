@@ -23,7 +23,7 @@
 #### 6.元素显示隐藏
 用过angular或者vue的同学都了解，在可以用指令来控制元素在渲染后的显示隐藏，很方便，不用我们在额外的操作dom元素，但是对于所用框架没有这个功能的同学就有点不爽了，所以我这里做了个原生的实现，可以根据指令来控制元素的显示隐藏，当然，指令你可以更换成你自己想要的。<https://github.com/Stevenzwzhai/plugs/tree/master/element-show>
 
-##### 7.事件触发器
+#### 7.事件触发器
 事件触发器是一个框架的基本组成，这里我做了一个简单地事件触发模块，支持事件绑定、触发、解绑，以及单次绑定事件。<https://github.com/Stevenzwzhai/plugs/tree/master/emitter>
 
 #### 8.模板引擎
