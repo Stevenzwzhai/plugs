@@ -1,7 +1,6 @@
 /**
     常见的数字处理
 */
-
 //取整
 function getAbs(num){
     if(typeof num !== "number"){
@@ -20,7 +19,7 @@ function getFixed(num, deci){
     return num.toFixed(deci||2);
 }
 
-//取千分位
+//取千分位,小数或者整数都可以
 function getThousands(num){
     if(typeof num !== "number"){
         throw new Error("请传入数字");
