@@ -51,3 +51,17 @@ function calcMul(arg1, arg2) {
      }
      return Number(s1.replace('.', '')) * Number(s2.replace('.', '')) / Math.pow(10, m);
 }
+//键盘只能输入数字，包括小数，传入输入框中的内容，返回数字。
+function formatKeyDown(value){
+        value = value.replace(/[^\d.]/g,"");
+        //必须保证第一个为数字而不是.
+        value = value.replace(/^\./g,"");
+        //保证只有出现一个.而没有多个.
+        value = value.replace(/\.{2,}/g,"");
+        //保证.只出现一次，而不能出现两次以上
+        value = value.replace(".","$#$").replace(/\./g,"").replace("$#$",".");
+        return value;
+    }
+
+     return Number(s1.replace('.', '')) * Number(s2.replace('.', '')) / Math.pow(10, m);输入
+     return Number(s1.replace('.', '')) * Number(s2.replace('.', '')) / Math.pow(10, m);
