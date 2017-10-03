@@ -99,5 +99,8 @@ show-> Boolean,标示图片查看器显示和隐藏，当然有关闭按钮的�
 加密存储localStorage和sessionStorage（base64）<https://github.com/Stevenzwzhai/plugins/storage>。
 #### 24.Number处理
 常见的数字处理<https://github.com/Stevenzwzhai/plugins/Number>。
+#### 25.一些vue指令
+常见指令<https://github.com/Stevenzwzhai/plugins/vue-directive>。
+1.移动端手指按下改变元素的样式
 
 以上就是全部内容，当然里面有些不足或粗糙，请大家指正，博客园和简书都是我写的文章，如果觉得不错star一下，或者提供更多的实用插件。未完待续。。。
