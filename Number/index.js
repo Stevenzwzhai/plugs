@@ -36,6 +36,7 @@ function getThousands(num){
 }
 
 //js计算
+//乘法
 function calcMul(arg1, arg2) {
      let m = 0,
          s1 = arg1.toString(),
@@ -51,6 +52,42 @@ function calcMul(arg1, arg2) {
      }
      return Number(s1.replace('.', '')) * Number(s2.replace('.', '')) / Math.pow(10, m);
 }
+//加法
+function calcAdd(arg1, arg2) {
+        let m = 0,
+            n = 0,
+            q = 0,
+            s1 = arg1.toString(),
+            s2 = arg2.toString();
+        try {
+            m += s1.split('.')[1].length;
+        } catch (e) {
+        }
+        try {
+            n += s2.split('.')[1].length;
+        } catch (e) {
+        }
+        q = Math.max(m, n);
+        return (Number(arg1)*Math.pow(10, q) + Number(arg2)*Math.pow(10, q)) / Math.pow(10, q);
+    }
+//减法
+    function calcReduce(arg1, arg2) {
+        let m = 0,
+            n = 0,
+            q = 0,
+            s1 = arg1.toString(),
+            s2 = arg2.toString();
+        try {
+            m += s1.split('.')[1].length;
+        } catch (e) {
+        }
+        try {
+            n += s2.split('.')[1].length;
+        } catch (e) {
+        }
+        q = Math.max(m, n);
+        return (Number(arg1)*Math.pow(10, q) - Number(arg2)*Math.pow(10, q)) / Math.pow(10, q);
+    }
 //键盘只能输入数字，包括小数，传入输入框中的内容，返回数字。
 function formatKeyDown(value){
         value = value.replace(/[^\d.]/g,"");
@@ -61,7 +98,11 @@ function formatKeyDown(value){
         //保证.只出现一次，而不能出现两次以上
         value = value.replace(".","$#$").replace(/\./g,"").replace("$#$",".");
         return value;
-    }
+}
 
-     return Number(s1.replace('.', '')) * Number(s2.replace('.', '')) / Math.pow(10, m);输入
-     return Number(s1.replace('.', '')) * Number(s2.replace('.', '')) / Math.pow(10, m);
+
+
+
+
+
+
