@@ -18,7 +18,8 @@
 用过bootstrap的同学都应该经常会用到模态框，最然bootstrap被广大前端er所排斥，但不可否认，它做的很多控件还是很好用的，最近工作项目中会有弹窗，所以我简单地做了一个弹窗动画，模拟bootstrap的模态框，当然动画是很简单，可是最终让它正常运行就没那么简单了，我之前也写过文章[js实现类bootstrap模态框动画](http://www.jianshu.com/p/e1f8af3f5316),代码地址<https://github.com/Stevenzwzhai/plugs/tree/master/dialog>
 
 #### 5.移动端拖拽
-大家都懂，地址<https://github.com/Stevenzwzhai/plugs/tree/master/drag>
+大家都懂，地址(demo1.html)<https://github.com/Stevenzwzhai/plugs/tree/master/drag>
+pc拖拽，鼠标快速移动也可正常拖动，地址(demo2.html)<https://github.com/Stevenzwzhai/plugs/tree/master/drag>
 
 #### 6.元素显示隐藏
 用过angular或者vue的同学都了解，在可以用指令来控制元素在渲染后的显示隐藏，很方便，不用我们在额外的操作dom元素，但是对于所用框架没有这个功能的同学就有点不爽了，所以我这里做了个原生的实现，可以根据指令来控制元素的显示隐藏，当然，指令你可以更换成你自己想要的。<https://github.com/Stevenzwzhai/plugs/tree/master/element-show>
