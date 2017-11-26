@@ -1,5 +1,5 @@
 function deepClone(data) {
-    let type = this.getType(data);
+    let type = getType(data);
     let obj;
     if (type === 'array') {
         obj = [];
@@ -11,11 +11,11 @@ function deepClone(data) {
     }
     if (type === 'array') {
         for (let i = 0, len = data.length; i < len; i++) {
-            obj.push(this.deepClone(data[i]));
+            obj.push(deepClone(data[i]));
         }
     } else if (type === 'object') {
         for (let key in data) {
-            obj[key] = this.deepClone(data[key]);
+            obj[key] = deepClone(data[key]);
         }
     }
     return obj;
