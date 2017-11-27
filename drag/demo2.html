@@ -38,6 +38,8 @@
         offsetX = oA.offsetLeft;
         offsetY = oA.offsetTop;
         canDrag = true;
+        //为了防止快速移动时，拖拽元素无法跟上，这里绑定移动事件直接绑定在document上， 沾满全屏。
+        document.addEventListener('mousemove', move, false)
     }, false)
     oA.addEventListener('click', function(e){
         startX = e.pageX;
@@ -46,24 +48,20 @@
         offsetY = oA.offsetTop;
         canDrag = true;
     }, false)
-    //为了防止快速移动时，拖拽元素无法跟上，这里绑定移动事件直接绑定在document上，body都不可以。
-    document.addEventListener('mousemove', move, false)
     //为了能解绑事件。这里的移动函数需要下载外面，解绑的时候还要传
     function move(e){
+
         if(!canDrag){
             return;
         }
         newX = e.pageX;
         newY = e.pageY;
-        console.log()
-        requestAnimationFrame(function(e){
-            oA.style.left = offsetX+newX-startX+"px";
-            oA.style.top = offsetY+newY-startY+"px";
-        })
+        oA.style.left = offsetX+newX-startX+"px";
+        oA.style.top = offsetY+newY-startY+"px";
     }
     document.addEventListener('mouseup', function(e){
         canDrag = false;
-        document.body.removeEventListener('mousemove', move, false)
+        document.removeEventListener('mousemove', move, false)
     }, false)
 </script>
 </body>
