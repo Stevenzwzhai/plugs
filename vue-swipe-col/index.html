@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>swipe-col</title>
+    <style type="text/css">
+        .wrapper {
+          height: 30px;
+          border: 1px solid #ccc;
+          position:relative;
+          color:#fff;
+          overflow:hidden;
+        }
+        p {
+            padding: 0;
+            margin: 0;
+            line-height: 30px;
+            width:300px;
+          }
+          .move{
+              position:absolute;
+              transform:translate3d(0,0,0);
+          }
+
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div>公告栏纵向无缝切换</div>
+<div id="app">
+  <button @click="startMove">move</button>
+  <div class="wrapper">
+    <div class="move" ref="move">
+      <p v-for="item in list" :style="{background:item.color}">
+        {{item.name}}
+      </p>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+    new Vue({
+  el: "#app",
+  data: {
+    list: [{
+      name: 0,
+      color:"red"
+    },
+    {
+      name: 1,
+      color:"blue"
+    },
+    {
+      name: 2,
+      color:"purple"
+    },
+    {
+      name: 3,
+      color:"gray"
+    },
+    {
+      name: 4,
+      color:"green"
+    },{
+      name: 0,
+      color:"red"
+    }],
+    index:1
+  },
+  methods: {
+        startMove(){
+      let timer = setInterval(() => {
+        console.log(this.index);
+        let obj = this.$refs.move;
+        obj.style.transition = "transform 0.3s ease";
+        obj.style.webkitTransform = `translate3d(0, ${-this.index*30}px, 0)`
+                //this.list.push(this.list.shift());      
+        
+        if(this.index == 5){
+          this.index = 1;
+          //
+          let timerT = setTimeout(() => {
+            clearTimeout(timerT);
+            obj.style.transition = "transform 0s ease";
+            obj.style.webkitTransform = `translate3d(0, 0, 0)`
+          }, 300)
+          
+        }else{
+          this.index++;
+        }
+        
+        
+      }, 1000)
+    }
+    }
+})
+</script>
+</body>
+</html>
