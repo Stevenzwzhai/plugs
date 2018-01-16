@@ -18,7 +18,7 @@ window.onload = function(){
         console.log('TCP-connect-time: ' + (timeObj.connectEnd - timeObj.connectStart));
         console.log('redirect-time: ' + (timeObj.redirectEnd  - timeObj.redirectStart));
     }, 3000)
-}
+
 
 //错误监控
 window.addEventListener('error', function(data) {
