@@ -57,7 +57,7 @@ function getDays(year, month) {
     var days;
     //当月份为二月时，根据闰年还是非闰年判断天数
     if (month == 2) {
-        days = year % 4 == 0 ? 29 : 28;
+        days = ((year % 4 == 0) && (year % 100 !== 0) || year % 400 == 0) ? 29 : 28;
 
     } else if (!(month+'').replace(/(1|3|5|7|8|10|12)/, '')) {
         //月份为：1,3,5,7,8,10,12 时，为大月.则天数为31；
