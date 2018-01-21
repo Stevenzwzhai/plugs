@@ -112,8 +112,7 @@ show-> Boolean,标示图片查看器显示和隐藏，当然有关闭按钮的�
 #### 26.操作元素的class
 地址：<https://github.com/Stevenzwzhai/plugs/tree/master/className-option>。
 包含了添加、删除、替换、在某个前面添加和在某个后面添加。实现了基本的classList功能（如果浏览器支持classList的话就不必使用这个了）。
-#### 27.面试题
+#### 27.面试题集合
 地址：<https://github.com/Stevenzwzhai/plugs/tree/master/interview>。
-包含了添加、删除、替换、在某个前面添加和在某个后面添加。实现了基本的classList功能（如果浏览器支持classList的话就不必使用这个了）。
 
 以上就是全部内容，当然里面有些不足或粗糙，请大家指正，博客园和简书都是我写的文章，如果觉得不错star一下，或者提供更多的实用插件。未完待续。。。
