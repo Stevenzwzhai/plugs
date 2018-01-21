@@ -74,7 +74,7 @@ pc拖拽，鼠标快速移动也可正常拖动，地址(demo2.html)<https://git
 #### 20.省市区联动选择
 使用原生js和vue分别编写：<https://github.com/Stevenzwzhai/city-select>
 #### 21.时间轴
-实现一个垂直时间轴，点击对应的时间，滑动到中间位置：<https://github.com/Stevenzwzhai/plugins/date-line>
+实现一个垂直时间轴，点击对应的时间，滑动到中间位置：<https://github.com/Stevenzwzhai/plugins/tree/master/date-line>
 #### 22.图品展示插件
 这两个是vue组件(基于vue2.x)，可以通过以下方式调用
 ```
@@ -97,23 +97,23 @@ title-> String图片查看器弹出时的标题
 imgLit-> Array 图片数组，元素格式{url:imgurl},至于为什么是个对象，是为了以后开发更多
 show-> Boolean,标示图片查看器显示和隐藏，当然有关闭按钮的。
 #### 23.storage的使用
-加密存储localStorage和sessionStorage（base64）<https://github.com/Stevenzwzhai/plugins/storage>。
+加密存储localStorage和sessionStorage（base64）<https://github.com/Stevenzwzhai/plugins/tree/master/storage>。
 #### 24.Number处理
-常见的数字处理<https://github.com/Stevenzwzhai/plugins/Number>。
+常见的数字处理<https://github.com/Stevenzwzhai/plugins/tree/master/Number>。
 #### 25.一些vue指令
-常见指令<https://github.com/Stevenzwzhai/plugins/vue-directive>。
+常见指令<https://github.com/Stevenzwzhai/plugins/tree/master/vue-directive>。
 1.移动端手指按下改变元素的样式
 #### 26.深拷贝
-深拷贝<https://github.com/Stevenzwzhai/plugins/deepClone>。
+深拷贝<https://github.com/Stevenzwzhai/plugins/tree/master/deepClone>。
 如果是普通的数组，对象，对象数组都可以使用JSON.parse(JSON.stringify(data))来迅速实现深拷贝，但是如果有函数，JSON.stringify()会把函数转为undefined,再parse就直接没了，所以这里还需要特殊处理一下（因为函数一般不需要深拷贝所以直接引用，如果需要可以对函数拷贝即可）。
 #### 25.公告纵向切换效果（vue实现纵向无缝切换）
-地址：<https://github.com/Stevenzwzhai/plugins/vue-swipe-col>。
+地址：<https://github.com/Stevenzwzhai/plugins/tree/master/vue-swipe-col>。
 演示地址：http://jsrun.net/TmiKp/show
 #### 26.操作元素的class
-地址：<https://github.com/Stevenzwzhai/plugins/className-option>。
+地址：<https://github.com/Stevenzwzhai/plugins/tree/master/className-option>。
 包含了添加、删除、替换、在某个前面添加和在某个后面添加。实现了基本的classList功能（如果浏览器支持classList的话就不必使用这个了）。
 #### 27.面试题
-地址：<https://github.com/Stevenzwzhai/plugins/interview>。
+地址：<https://github.com/Stevenzwzhai/plugins/tree/master/interview>。
 包含了添加、删除、替换、在某个前面添加和在某个后面添加。实现了基本的classList功能（如果浏览器支持classList的话就不必使用这个了）。
 
 以上就是全部内容，当然里面有些不足或粗糙，请大家指正，博客园和简书都是我写的文章，如果觉得不错star一下，或者提供更多的实用插件。未完待续。。。
