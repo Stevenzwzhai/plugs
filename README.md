@@ -113,7 +113,6 @@ show-> Boolean,标示图片查看器显示和隐藏，当然有关闭按钮的�
 地址：<https://github.com/Stevenzwzhai/plugs/tree/master/className-option>。
 包含了添加、删除、替换、在某个前面添加和在某个后面添加。实现了基本的classList功能（如果浏览器支持classList的话就不必使用这个了）。
 #### 27.面试题
-<<<<<<< HEAD
 地址：<https://github.com/Stevenzwzhai/plugs/tree/master/interview>。
 包含了添加、删除、替换、在某个前面添加和在某个后面添加。实现了基本的classList功能（如果浏览器支持classList的话就不必使用这个了）。
 
