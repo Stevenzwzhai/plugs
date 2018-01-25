@@ -9,7 +9,7 @@ let str = '430682197905200825';
 // }
 
 function rep(str){
-    return str.replace(/^(\d{6})\d+(\d{4})$/, ($1, $2, $3)=> $2+'*'.repeat(8)+$3)
+    return str.replace(/^(\d{6})\d+(\d{4})$/,`$1${'*'.repeat(8)}$2`)
 }
 console.log(rep(str))
 
