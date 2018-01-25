@@ -29,3 +29,4 @@ const juejinFrontendEnginnerSpecification = new JuejinFrontendEnginnerSpecificat
 if (juejinFrontendEnginnerSpecification.isSatisfiedBy(you)) {
   new JuejinFrontendEnginner(you).doSomeInterestingThings()
 }
+
