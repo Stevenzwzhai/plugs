@@ -1,9 +1,11 @@
 import {isString} from './utils'
+import listDiff from './listDiff'
 
 const diffType = {
     TEXT: 0,
     PROPS: 1,
-    REPLACE:2
+    REPLACE:2,
+    REORDER: 3
 }
 function diff(oldTree, newTree){
     let patches = {};
@@ -45,6 +47,15 @@ function diffWalk(oldNode, newNode, index, patches){
 }
 
 function diffChildren(oldChildren, newChildren, index, patches){
+    var diffs = listDiff(oldChildren, newChildren, 'key')
+    newChildren = diffs.children
+
+    if (diffs.moves.length) {
+        var reorderPatch = { type: patch.REORDER, moves: diffs.moves }
+        currentPatch.push(reorderPatch)
+    }
+
+
     let leftNode = null;
     let currentIndex = index;
     oldChildren.forEach((node, nodeIndex) => {
@@ -53,6 +64,7 @@ function diffChildren(oldChildren, newChildren, index, patches){
         diffWalk(node, newChildren[index], currentIndex, patches);
         leftNode = node;
     })
+
 }
 
 function diffProps(oldNode, newNode){
