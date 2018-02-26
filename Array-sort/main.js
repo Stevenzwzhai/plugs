@@ -57,3 +57,19 @@ function quickSort(arr){
 	}
 	return quickSort(leftArr).concat(temp, quickSort(rightArr));
 }
+//插入排序（v8在10个以内的数组是这么排序的）
+function insertSort(arr){
+    if(!Array.isArray(arr)){
+        throw new Error('must use array')
+    }
+    let arrP = arr.slice();
+    for(let i = 1; i < arrP.length; i++){
+        for(let j = 0; j < i; j++){
+            if(arrP[i] < arrP[j]){
+                arrP.splice(j, 0, arrP.splice(i, 1)[0])
+            }
+        }
+    }
+    return arrP
+}
+console.log(insertSort(arr))
