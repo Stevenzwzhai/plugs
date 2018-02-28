@@ -13,7 +13,7 @@ function throttle(fn, delay){
     }
 }
 
-//debounce会合并事件且不会去触发事件，当一定时间内没有触发再这个事件时，才真正去触发事件～ 一起来实现个简单的debounce：
+//debounce会合并事件且不会去触发事件，当一定时间内没有触发再这个事件时，才真正去触发事件
 
 function debounce(fn, delay) {
   var ctx;
