@@ -45,3 +45,10 @@ event.prototype.once = function(name, cb){
         this.events[name] = [cb];
     }
 }
+
+event.prototype.remove = function(name){
+    if(typeof name !== 'string'){
+        throw new Error('must use a string name')
+    }
+    delete this.events[name]
+}
