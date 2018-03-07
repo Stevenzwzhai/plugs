@@ -34,7 +34,7 @@ function getType(obj) {
         '[object Null]': 'null',
         '[object Object]': 'object'
     };
-    if (obj instanceof Element) {
+    if (Element && obj instanceof Element) {
         return 'element';
     }
     return map[toString.call(obj)];
