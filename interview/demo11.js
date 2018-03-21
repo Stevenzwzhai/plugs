@@ -35,5 +35,14 @@ var obj = [{
     b:undefined,
     c:{}
 }]
+var obj2 = [{
+    a:1,
+    b: true,
+    c: function(){}
+}, {
+    a: null,
+    b:undefined,
+    c:{}
+}]
 
-console.log(toString(obj))
+console.log(isSame(obj, obj2))
