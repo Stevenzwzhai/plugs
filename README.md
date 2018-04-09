@@ -116,5 +116,6 @@ show-> Boolean,标示图片查看器显示和隐藏，当然有关闭按钮的�
 地址：<https://github.com/Stevenzwzhai/plugs/tree/master/interview>。
 #### 27.jsonp简单实现
 地址：<https://github.com/Stevenzwzhai/plugs/tree/master/jsonp>。
-
+#### 27.微信浏览器不显示x5内核标示的解决方案。
+地址：<https://github.com/Stevenzwzhai/plugs/tree/master/wechat-scroll/index.js>。
 以上就是全部内容，当然里面有些不足或粗糙，请大家指正，博客园和简书都是我写的文章，如果觉得不错star一下，或者提供更多的实用插件。未完待续。。。
