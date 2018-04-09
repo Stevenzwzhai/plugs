@@ -37,5 +37,4 @@ var a = {
     },
     j:/g/gim
 }
-console.log(a);
 // deepClone(a).h.i();

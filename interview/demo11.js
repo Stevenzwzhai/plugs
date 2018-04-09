@@ -1,5 +1,5 @@
 //判断两个数据是否相同。
-function isSame(eleA, eleB){
+function compareData(eleA, eleB){
     return toString(eleA) === toString(eleB);
 }
 
@@ -21,6 +21,8 @@ function toString(obj){
         result = obj.toString();
     }else if(typeof obj === "undefined"){
         result = obj;
+    }else if(typeof obj === "symbol"){
+        result = obj.toString();
     }else{
         result = JSON.stringify(obj);
     }
