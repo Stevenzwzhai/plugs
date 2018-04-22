@@ -55,7 +55,7 @@ function quickSort(arr){
 			rightArr.push(_arr[i]);
 		}
 	}
-	return quickSort(leftArr).concat(temp, quickSort(rightArr));
+	return quickSort(leftArr).concat([temp], quickSort(rightArr));
 }
 //插入排序（v8在10个以内的数组是这么排序的）
 function insertSort(arr){
