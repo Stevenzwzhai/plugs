@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dom-traverse</title>
+</head>
+<body>
+<div id="root">
+    a
+    <div>
+        b
+        <div>d</div>
+    </div>
+    <div>
+        c
+        <div>e</div>
+    </div>
+</div>
+<script type="text/javascript">
+    /*
+    dom广度优先遍历和深度优先遍历
+    */
+    //广度优先-递归
+    function widthTraverseR(node){
+        let nodeList = [];
+        let index = 0;
+        if(node){
+            nodeList.push(node)
+            nodeList = nodeList.concat(widthTraverseR(node.nextElementSibling));
+            node = nodeList[index++];
+            nodeList = nodeList.concat(widthTraverseR(node.firstElementChild));
+        }
+        return nodeList;
+    }
+    //广度优先-非递归
+    function widthTraverse(node){
+        let nodeList = [];
+        let nodeStack = [node];
+        let currNode = null;
+        while(nodeStack.length){
+            currNode = nodeStack.pop();
+            nodeList.push(currNode);
+            Array.from(currNode.children).forEach(child => {
+                nodeStack.unshift(child)
+            })
+        }
+        return nodeList;
+    }
+    //深度优先-递归
+    function deepTraverseR(node){
+        let nodeList = [];
+
+        if(node){
+            nodeList.push(node)
+            Array.from(node.children).forEach(element => {
+                nodeList = nodeList.concat(deepTraverseR(element))
+            })
+        }
+        return nodeList;
+    }
+    //深度优先-非递归
+    function deepTraverse(node){
+        let nodeList = [];
+        let nodeStack = [node]
+        let currNode = null;
+        while(nodeStack.length){
+            currNode = nodeStack.pop();
+            nodeList.push(currNode);
+            Array.from(currNode.children).forEach(element => {
+                nodeStack.push(element)
+            })
+        }
+        return nodeList
+    }
+
+
+
+
+
+
+    const rootNode = document.getElementById('root')
+    console.log(widthTraverseR(rootNode))
+    console.log(widthTraverse(rootNode))
+    console.log(deepTraverseR(rootNode))
+    console.log(deepTraverse(rootNode))
+</script>
+</body>
+</html>
