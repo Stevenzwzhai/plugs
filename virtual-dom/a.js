@@ -33,7 +33,7 @@ var findMedianSortedArrays = function(nums1, nums2) {
             }
         }
     }
-    console.log(c1,c2, i1, i2)
+    console.log(c1, c2, i1, i2)
     l1 = nums1.slice(0, i1)
     l2 = nums2.slice(0, i2)
     r1 = nums1.slice(i1, nums1.length)
