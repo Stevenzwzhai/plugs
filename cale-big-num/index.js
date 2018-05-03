@@ -63,5 +63,4 @@ function addS(num1, num2){
     }
 }
 
-console.log(add(123, 11))
 console.log(addS(-1, 25))
