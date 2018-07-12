@@ -170,3 +170,22 @@ function Base64() {
         return string;
     }
 }
+//实现缓存的过期设置
+var spLocalStorage = {
+        setItem: function(key, value, timeout) {
+            timeout = Date.now()+(timeout || 0);
+            localStorage.setItem(key, JSON.stringify({value:value, timeout:timeout}))
+        },
+        getItem: function(key){
+            let value = localStorage.getItem(key)
+            if(value){
+                value = JSON.parse(value).timeout > Date.now() ? JSON.parse(value).value : null;
+            }else{
+                this.removeItem(key)
+            }
+            return value
+        },
+        removeItem: function(key){
+            localStorage.removeItem(key)
+        }
+    }
