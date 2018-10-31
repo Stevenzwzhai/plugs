@@ -124,4 +124,6 @@ show-> Boolean,标示图片查看器显示和隐藏，当然有关闭按钮的�
 #### 30.缓存设计。
 基于 Localstorage 设计一个缓存系统,在最后新增了设置缓存的过期时间
 地址：<https://github.com/Stevenzwzhai/plugs/tree/master/storage-system/index.js>。
+#### 31.日期特殊处理
+日期的特殊处理，比如获取某个时间点相对现在是几（秒/分/时/天/月/年）前：<https://github.com/Stevenzwzhai/plugs/tree/master/date-deal/index.js>。
 以上就是全部内容，当然里面有些不足或粗糙，请大家指正，博客园和简书都是我写的文章，如果觉得不错star一下，或者提供更多的实用插件。未完待续。。。
