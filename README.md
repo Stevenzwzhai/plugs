@@ -126,4 +126,7 @@ show-> Boolean,标示图片查看器显示和隐藏，当然有关闭按钮的�
 地址：<https://github.com/Stevenzwzhai/plugs/tree/master/storage-system/index.js>。
 #### 31.日期特殊处理
 日期的特殊处理，比如获取某个时间点相对现在是几（秒/分/时/天/月/年）前：<https://github.com/Stevenzwzhai/plugs/tree/master/date-deal/index.js>。
+#### 32.移动端弹窗-页面滚动
+当我们写一些简单的h5页面时，不免会有一些弹窗，当页面是可以滚动的，但是希望在出现弹窗后，手指滑动时页面不要跟着滚动，这个时候就需要特殊处理了：<https://github.com/Stevenzwzhai/plugs/tree/master/dialog-scroll/index.js>。
+
 以上就是全部内容，当然里面有些不足或粗糙，请大家指正，博客园和简书都是我写的文章，如果觉得不错star一下，或者提供更多的实用插件。未完待续。。。
