@@ -17,7 +17,7 @@ Array.prototype.unique = function(){
 Array.prototype.unique = function(){
 	var json = {}, newArr = [], len = this.length;
 	for(var i = 0; i < len; i++){
-		if(typeof json[this[i]] !== "undefined"){
+		if(typeof json[this[i]] === "undefined"){
 			json[this[i]] = true;
 			newArr.push(this[i]);
 		}
